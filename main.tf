@@ -406,8 +406,8 @@ resource "aws_ecs_service" "ignore_changes_task_definition" {
     content {
       container_name   = load_balancer.value.container_name
       container_port   = load_balancer.value.container_port
-      elb_name         = lookup(load_balancer.value, "elb_name", null)
-      target_group_arn = lookup(load_balancer.value, "target_group_arn", null)
+      elb_name         = optional(lookup(load_balancer.value, "elb_name", null))
+      target_group_arn = optional(lookup(load_balancer.value, "target_group_arn", null))
     }
   }
 
@@ -499,8 +499,8 @@ resource "aws_ecs_service" "ignore_changes_task_definition_and_desired_count" {
     content {
       container_name   = load_balancer.value.container_name
       container_port   = load_balancer.value.container_port
-      elb_name         = lookup(load_balancer.value, "elb_name", null)
-      target_group_arn = lookup(load_balancer.value, "target_group_arn", null)
+      elb_name         = optional(lookup(load_balancer.value, "elb_name", null))
+      target_group_arn = optional(lookup(load_balancer.value, "target_group_arn", null))
     }
   }
 
